@@ -21,7 +21,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * BroadcastReceiver to receive the removable storage (such as SD-card) status events.

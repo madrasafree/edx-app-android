@@ -16,7 +16,7 @@ import org.edx.mobile.module.storage.BulkVideosDownloadCancelledEvent;
 
 import java.util.Map;
 
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 public class DownloadSizeExceedDialog extends DialogFragment {
 

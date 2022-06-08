@@ -28,7 +28,7 @@ import com.google.gson.reflect.TypeToken;
 
 import org.edx.mobile.BuildConfig;
 import org.edx.mobile.R;
-import org.edx.mobile.authentication.AuthResponse;
+import org.edx.mobile.model.authentication.AuthResponse;
 import org.edx.mobile.authentication.LoginAPI;
 import org.edx.mobile.authentication.LoginService;
 import org.edx.mobile.base.BaseFragmentActivity;

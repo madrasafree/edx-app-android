@@ -15,7 +15,7 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 public class SetAccountImageTask extends Task<Object> {
 

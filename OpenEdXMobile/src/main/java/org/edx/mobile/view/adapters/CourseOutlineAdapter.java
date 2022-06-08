@@ -61,7 +61,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 public class CourseOutlineAdapter extends BaseAdapter {
 

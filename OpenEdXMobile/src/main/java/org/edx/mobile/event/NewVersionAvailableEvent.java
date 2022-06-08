@@ -13,7 +13,7 @@ import org.edx.mobile.util.Version;
 import java.text.ParseException;
 import java.util.Date;
 
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * An event signifying that a new version of the app is available on the app stores.

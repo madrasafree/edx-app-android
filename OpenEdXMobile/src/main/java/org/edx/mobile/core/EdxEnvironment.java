@@ -17,7 +17,7 @@ import javax.inject.Inject;
 import dagger.Module;
 import dagger.hilt.InstallIn;
 import dagger.hilt.components.SingletonComponent;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 @Module
 @InstallIn(SingletonComponent.class)

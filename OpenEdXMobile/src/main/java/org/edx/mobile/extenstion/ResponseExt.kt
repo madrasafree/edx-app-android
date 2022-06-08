@@ -1,7 +1,7 @@
 package org.edx.mobile.extenstion
 
-import org.edx.mobile.http.model.NetworkResponseCallback
-import org.edx.mobile.http.model.Result
+import org.edx.mobile.model.api.NetworkResponseCallback
+import org.edx.mobile.model.api.Result
 import org.edx.mobile.util.InAppPurchasesException
 import org.json.JSONObject
 import retrofit2.Response

@@ -11,11 +11,11 @@ import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import de.greenrobot.event.EventBus
+import org.greenrobot.eventbus.EventBus
 import org.edx.mobile.authentication.LoginAPI
 import org.edx.mobile.course.CourseAPI
 import org.edx.mobile.course.CourseService
-import org.edx.mobile.discussion.DiscussionService
+import org.edx.mobile.model.discussion.DiscussionService
 import org.edx.mobile.http.provider.OkHttpClientProvider
 import org.edx.mobile.http.provider.RetrofitProvider
 import org.edx.mobile.inapppurchases.InAppPurchasesAPI

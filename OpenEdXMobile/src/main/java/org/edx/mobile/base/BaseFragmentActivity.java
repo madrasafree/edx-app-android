@@ -36,7 +36,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 public abstract class BaseFragmentActivity extends BaseAppActivity
         implements NetworkSubject, ICommonUI, OnActivityResultListener {
@@ -119,7 +120,7 @@ public abstract class BaseFragmentActivity extends BaseAppActivity
     @Override
     protected void onResume() {
         super.onResume();
-        EventBus.getDefault().registerSticky(this);
+        EventBus.getDefault().register(this);
     }
 
     @Override
@@ -240,6 +241,7 @@ public abstract class BaseFragmentActivity extends BaseAppActivity
      *
      * @param event
      */
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEvent(LogoutEvent event) {
         environment.getRouter().forceLogout(this,
@@ -253,6 +255,7 @@ public abstract class BaseFragmentActivity extends BaseAppActivity
      *
      * @param event
      */
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEvent(NetworkConnectivityChangeEvent event) {
 
@@ -297,6 +300,7 @@ public abstract class BaseFragmentActivity extends BaseAppActivity
         }
     }
 
+    @Subscribe
     public void onEvent(final PushLinkReceivedEvent event) {
         if (event.getPushLink().isDeepLink()) {
             showAlertDialog(event.getPushLink().getTitle(), event.getPushLink().getBody(),

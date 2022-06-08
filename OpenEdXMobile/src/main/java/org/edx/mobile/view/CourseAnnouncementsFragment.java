@@ -35,7 +35,9 @@ import java.util.List;
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 import okhttp3.Request;
 
 @AndroidEntryPoint
@@ -149,7 +151,7 @@ public class CourseAnnouncementsFragment extends BaseFragment implements Refresh
                             return;
                         }
                         if (!EventBus.getDefault().isRegistered(CourseAnnouncementsFragment.this)) {
-                            EventBus.getDefault().registerSticky(CourseAnnouncementsFragment.this);
+                            EventBus.getDefault().register(CourseAnnouncementsFragment.this);
                         }
                     }
                 });
@@ -176,6 +178,7 @@ public class CourseAnnouncementsFragment extends BaseFragment implements Refresh
         webView.loadDataWithBaseURL(environment.getConfig().getApiHostURL(), buff.toString(), "text/html", StandardCharsets.UTF_8.name(), null);
     }
 
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEventMainThread(NetworkConnectivityChangeEvent event) {
         if (!NetworkUtil.isConnected(getContext())) {

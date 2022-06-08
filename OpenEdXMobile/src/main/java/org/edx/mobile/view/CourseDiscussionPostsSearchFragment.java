@@ -14,9 +14,9 @@ import androidx.annotation.Nullable;
 
 import org.edx.mobile.R;
 import org.edx.mobile.databinding.FragmentDiscussionSearchPostsBinding;
-import org.edx.mobile.discussion.DiscussionRequestFields;
-import org.edx.mobile.discussion.DiscussionService;
-import org.edx.mobile.discussion.DiscussionThread;
+import org.edx.mobile.model.discussion.DiscussionRequestFields;
+import org.edx.mobile.model.discussion.DiscussionService;
+import org.edx.mobile.model.discussion.DiscussionThread;
 import org.edx.mobile.http.callback.CallTrigger;
 import org.edx.mobile.http.callback.ErrorHandlingCallback;
 import org.edx.mobile.model.Page;

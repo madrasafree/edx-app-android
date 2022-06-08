@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 import okhttp3.Interceptor;
 import okhttp3.Protocol;
 import okhttp3.Request;

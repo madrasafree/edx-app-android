@@ -12,7 +12,7 @@ import org.edx.mobile.task.Task;
 import java.io.IOException;
 
 import dagger.hilt.android.EntryPointAccessors;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 public class DeleteAccountImageTask extends Task<Object> {
 

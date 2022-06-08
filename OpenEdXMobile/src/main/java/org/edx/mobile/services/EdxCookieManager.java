@@ -17,7 +17,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import dagger.hilt.android.EntryPointAccessors;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 import okhttp3.Cookie;
 import okhttp3.RequestBody;
 import retrofit2.Call;

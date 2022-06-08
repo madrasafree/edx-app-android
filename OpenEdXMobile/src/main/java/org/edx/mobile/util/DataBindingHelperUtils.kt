@@ -18,6 +18,7 @@ import com.google.android.material.resources.TextAppearanceConfig
 import org.edx.mobile.R
 import org.edx.mobile.databinding.SubItemCourseDateBlockBinding
 import org.edx.mobile.interfaces.OnDateBlockListener
+import org.edx.mobile.model.course.CourseDateType
 import org.edx.mobile.model.course.CourseDateBlock
 
 /**

@@ -37,7 +37,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 public abstract class TabsBaseFragment extends BaseFragment {
     @Inject

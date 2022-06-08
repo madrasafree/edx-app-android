@@ -669,7 +669,7 @@ public class VideoPlayer implements Player.Listener, AnalyticsListener, PlayerLi
 
     @Override
     public boolean isPlaying() {
-        if (state == PlayerState.PLAYING
+        if (state == PlayerState.PLAYING || state == PlayerState.PREPARED
                 || state == PlayerState.LAGGING) {
             logger.debug("isPlaying = TRUE");
             return (exoPlayer.getPlaybackState() == Player.STATE_READY ||

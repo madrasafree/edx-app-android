@@ -32,7 +32,7 @@ import java.util.Map;
 
 import dagger.hilt.android.EntryPointAccessors;
 import dagger.hilt.android.qualifiers.ActivityContext;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 import okhttp3.ResponseBody;
 
 /**

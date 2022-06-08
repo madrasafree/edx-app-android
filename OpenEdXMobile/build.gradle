@@ -151,7 +151,7 @@ dependencies {
     implementation 'com.microsoft.identity.client:msal:0.3+'
     implementation 'commons-lang:commons-lang:2.6'
     implementation 'com.google.code.gson:gson:2.7'
-    implementation 'de.greenrobot:eventbus:2.4.1'
+    implementation "org.greenrobot:eventbus:3.3.1"
     implementation 'com.squareup.phrase:phrase:1.1.0'
     /*
      * REASON FOR NOT UPGRADING Okhttp TO LATEST VERSION
@@ -485,6 +485,9 @@ android {
 
     buildTypes {
         debug {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             testCoverageEnabled true
             pseudoLocalesEnabled true // Set device language to "en_XA" to test glyphs, or "ar_XB" to test RTL support
         }

@@ -36,7 +36,8 @@ import org.edx.mobile.view.dialog.NativeFindCoursesFragment;
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 @AndroidEntryPoint
 public class MainDiscoveryFragment extends BaseFragment {
@@ -221,11 +222,13 @@ public class MainDiscoveryFragment extends BaseFragment {
         binding.options.setVisibility(View.GONE);
     }
 
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEventMainThread(@NonNull DiscoveryTabSelectedEvent event) {
         onFragmentSelected(binding.options.getCheckedRadioButtonId(), true);
     }
 
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEventMainThread(@NonNull ScreenArgumentsEvent event) {
         handleTabSelection(event.getBundle());

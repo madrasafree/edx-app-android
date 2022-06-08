@@ -20,7 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 @AndroidEntryPoint
 public class MainTabsDashboardFragment extends TabsBaseFragment {
@@ -98,6 +99,7 @@ public class MainTabsDashboardFragment extends TabsBaseFragment {
         return items;
     }
 
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEventMainThread(@NonNull MoveToDiscoveryTabEvent event) {
         if (!ConfigUtil.Companion.isCourseDiscoveryEnabled(environment)) {

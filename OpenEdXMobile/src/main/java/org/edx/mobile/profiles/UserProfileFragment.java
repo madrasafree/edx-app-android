@@ -29,6 +29,7 @@ import org.edx.mobile.http.notifications.SnackbarErrorNotification;
 import org.edx.mobile.interfaces.RefreshListener;
 import org.edx.mobile.logger.Logger;
 import org.edx.mobile.model.FragmentItemModel;
+import org.edx.mobile.model.profile.UserProfileViewModel;
 import org.edx.mobile.module.analytics.AnalyticsRegistry;
 import org.edx.mobile.module.prefs.UserPrefs;
 import org.edx.mobile.user.UserService;
@@ -47,7 +48,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 @AndroidEntryPoint
 public class UserProfileFragment
@@ -295,7 +297,7 @@ public class UserProfileFragment
 
             private void onFinish() {
                 if (!EventBus.getDefault().isRegistered(UserProfileFragment.this)) {
-                    EventBus.getDefault().registerSticky(UserProfileFragment.this);
+                    EventBus.getDefault().register(UserProfileFragment.this);
                 }
             }
         };
@@ -340,6 +342,7 @@ public class UserProfileFragment
         presenter.onRefresh();
     }
 
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEvent(NetworkConnectivityChangeEvent event) {
         if (!NetworkUtil.isConnected(getContext())) {

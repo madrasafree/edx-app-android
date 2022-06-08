@@ -2,8 +2,8 @@ package org.edx.mobile.repositorie
 
 import org.edx.mobile.exception.ErrorMessage
 import org.edx.mobile.extenstion.toInAppPurchasesResult
-import org.edx.mobile.http.model.NetworkResponseCallback
-import org.edx.mobile.http.model.Result
+import org.edx.mobile.model.api.NetworkResponseCallback
+import org.edx.mobile.model.api.Result
 import org.edx.mobile.inapppurchases.InAppPurchasesAPI
 import org.edx.mobile.model.iap.AddToBasketResponse
 import org.edx.mobile.model.iap.CheckoutResponse

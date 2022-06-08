@@ -43,7 +43,8 @@ import org.edx.mobile.services.EdxCookieManager;
 import org.edx.mobile.util.NetworkUtil;
 import org.edx.mobile.util.WebViewUtil;
 
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 /**
  * A custom webview which authenticates the user before loading a page,
@@ -308,6 +309,7 @@ public class AuthenticatedWebView extends FrameLayout implements RefreshListener
         }
     }
 
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEventMainThread(NetworkConnectivityChangeEvent event) {
         if (NetworkUtil.isConnected(getContext())) {
@@ -320,6 +322,7 @@ public class AuthenticatedWebView extends FrameLayout implements RefreshListener
         }
     }
 
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEventMainThread(SessionIdRefreshEvent event) {
         if (event.success) {
@@ -329,16 +332,19 @@ public class AuthenticatedWebView extends FrameLayout implements RefreshListener
         }
     }
 
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEventMainThread(CourseDashboardRefreshEvent event) {
         onRefresh();
     }
 
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEventMainThread(MainDashboardRefreshEvent event) {
         onRefresh();
     }
 
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEventMainThread(FileSelectionEvent event) {
         if (webViewClient != null) {

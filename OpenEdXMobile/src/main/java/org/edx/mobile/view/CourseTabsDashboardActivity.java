@@ -21,7 +21,7 @@ import org.edx.mobile.event.CourseUpgradedEvent;
 import org.edx.mobile.model.api.EnrolledCoursesResponse;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 @AndroidEntryPoint
 public class CourseTabsDashboardActivity extends OfflineSupportBaseActivity {

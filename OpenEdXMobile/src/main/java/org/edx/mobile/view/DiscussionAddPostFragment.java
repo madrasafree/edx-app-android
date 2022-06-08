@@ -17,13 +17,13 @@ import androidx.core.view.ViewCompat;
 import org.edx.mobile.R;
 import org.edx.mobile.base.BaseFragment;
 import org.edx.mobile.databinding.FragmentAddPostBinding;
-import org.edx.mobile.discussion.CourseTopics;
-import org.edx.mobile.discussion.DiscussionService;
-import org.edx.mobile.discussion.DiscussionThread;
-import org.edx.mobile.discussion.DiscussionThreadPostedEvent;
-import org.edx.mobile.discussion.DiscussionTopic;
-import org.edx.mobile.discussion.DiscussionTopicDepth;
-import org.edx.mobile.discussion.ThreadBody;
+import org.edx.mobile.model.discussion.CourseTopics;
+import org.edx.mobile.model.discussion.DiscussionService;
+import org.edx.mobile.model.discussion.DiscussionThread;
+import org.edx.mobile.model.discussion.DiscussionThreadPostedEvent;
+import org.edx.mobile.model.discussion.DiscussionTopic;
+import org.edx.mobile.model.discussion.DiscussionTopicDepth;
+import org.edx.mobile.model.discussion.ThreadBody;
 import org.edx.mobile.http.callback.CallTrigger;
 import org.edx.mobile.http.callback.ErrorHandlingCallback;
 import org.edx.mobile.http.notifications.DialogErrorNotification;
@@ -42,7 +42,7 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 import retrofit2.Call;
 
 @AndroidEntryPoint

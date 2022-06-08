@@ -24,7 +24,9 @@ import org.edx.mobile.util.NetworkUtil;
 import org.edx.mobile.util.VideoUtil;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 import subtitleFile.Caption;
 import subtitleFile.TimedTextObject;
 
@@ -230,6 +232,7 @@ public class CourseUnitYoutubePlayerFragment extends BaseCourseUnitVideoFragment
         }
     }
 
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEvent(NetworkConnectivityChangeEvent event) {
         if (getActivity() != null && NetworkUtil.isConnected(getActivity())) {

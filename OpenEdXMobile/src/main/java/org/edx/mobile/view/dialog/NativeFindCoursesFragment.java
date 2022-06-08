@@ -14,7 +14,7 @@ import org.edx.mobile.R;
 import org.edx.mobile.base.BaseFragment;
 import org.edx.mobile.core.IEdxEnvironment;
 import org.edx.mobile.course.CourseAPI;
-import org.edx.mobile.course.CourseDetail;
+import org.edx.mobile.model.course.CourseDetail;
 import org.edx.mobile.http.callback.CallTrigger;
 import org.edx.mobile.http.callback.ErrorHandlingCallback;
 import org.edx.mobile.model.Page;

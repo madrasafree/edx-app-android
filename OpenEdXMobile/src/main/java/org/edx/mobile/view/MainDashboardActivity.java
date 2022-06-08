@@ -35,7 +35,8 @@ import java.text.ParseException;
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 @AndroidEntryPoint
 public class MainDashboardActivity extends OfflineSupportBaseActivity
@@ -136,6 +137,7 @@ public class MainDashboardActivity extends OfflineSupportBaseActivity
      *
      * @param newVersionAvailableEvent The new app version availability event.
      */
+    @Subscribe
     public void onEvent(@NonNull final NewVersionAvailableEvent newVersionAvailableEvent) {
         if (!newVersionAvailableEvent.isConsumed()) {
             final Snackbar snackbar = Snackbar.make(getBinding().coordinatorLayout,

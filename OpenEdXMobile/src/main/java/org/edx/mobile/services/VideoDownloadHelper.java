@@ -2,6 +2,7 @@ package org.edx.mobile.services;
 
 import static org.edx.mobile.util.DownloadUtil.isDownloadSizeWithinLimit;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 
 import androidx.fragment.app.DialogFragment;
@@ -32,7 +33,7 @@ import javax.inject.Inject;
 import dagger.Module;
 import dagger.hilt.InstallIn;
 import dagger.hilt.components.SingletonComponent;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 @Module
 @InstallIn(SingletonComponent.class)
@@ -167,6 +168,7 @@ public class VideoDownloadHelper {
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
     private void startDownload(List<DownloadEntry> downloadList,
                                final FragmentActivity activity,
                                final DownloadManagerCallback callback) {

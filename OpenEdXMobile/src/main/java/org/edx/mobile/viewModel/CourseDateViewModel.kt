@@ -14,8 +14,8 @@ import okhttp3.ResponseBody
 import org.edx.mobile.exception.ErrorMessage
 import org.edx.mobile.http.HttpStatusException
 import org.edx.mobile.http.constants.ApiConstants
-import org.edx.mobile.http.model.NetworkResponseCallback
-import org.edx.mobile.http.model.Result
+import org.edx.mobile.model.api.NetworkResponseCallback
+import org.edx.mobile.model.api.Result
 import org.edx.mobile.model.course.CourseBannerInfoModel
 import org.edx.mobile.model.course.CourseDates
 import org.edx.mobile.model.course.ResetCourseDates

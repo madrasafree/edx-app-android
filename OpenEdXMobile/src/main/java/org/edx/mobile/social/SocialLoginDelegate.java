@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.edx.mobile.R;
-import org.edx.mobile.authentication.AuthResponse;
+import org.edx.mobile.model.authentication.AuthResponse;
 import org.edx.mobile.authentication.LoginAPI;
 import org.edx.mobile.core.EdxDefaultModule;
 import org.edx.mobile.exception.LoginErrorMessage;

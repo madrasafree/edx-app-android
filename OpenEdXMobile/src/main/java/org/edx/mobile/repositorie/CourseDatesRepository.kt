@@ -2,8 +2,8 @@ package org.edx.mobile.repositorie
 
 import org.edx.mobile.course.CourseAPI
 import org.edx.mobile.http.HttpStatus
-import org.edx.mobile.http.model.NetworkResponseCallback
-import org.edx.mobile.http.model.Result
+import org.edx.mobile.model.api.NetworkResponseCallback
+import org.edx.mobile.model.api.Result
 import org.edx.mobile.model.course.CourseBannerInfoModel
 import org.edx.mobile.model.course.CourseDates
 import org.edx.mobile.model.course.ResetCourseDates

@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import com.google.gson.JsonObject;
 
-import org.edx.mobile.authentication.AuthResponse;
+import org.edx.mobile.model.authentication.AuthResponse;
 import org.edx.mobile.base.BaseTestCase;
 import org.edx.mobile.base.Injector;
 import org.edx.mobile.http.HttpStatus;

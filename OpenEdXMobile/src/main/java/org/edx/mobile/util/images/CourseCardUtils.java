@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.text.format.DateUtils;
 
 import org.edx.mobile.R;
-import org.edx.mobile.course.CourseDetail;
+import org.edx.mobile.model.course.CourseDetail;
 import org.edx.mobile.model.api.CourseEntry;
 import org.edx.mobile.model.api.EnrolledCoursesResponse;
 import org.edx.mobile.model.api.StartType;

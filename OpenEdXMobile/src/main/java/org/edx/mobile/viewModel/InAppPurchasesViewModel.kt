@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.edx.mobile.R
 import org.edx.mobile.exception.ErrorMessage
-import org.edx.mobile.http.model.NetworkResponseCallback
-import org.edx.mobile.http.model.Result
+import org.edx.mobile.model.api.NetworkResponseCallback
+import org.edx.mobile.model.api.Result
 import org.edx.mobile.model.iap.AddToBasketResponse
 import org.edx.mobile.model.iap.CheckoutResponse
 import org.edx.mobile.model.iap.ExecuteOrderResponse

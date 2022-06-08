@@ -10,7 +10,7 @@ import org.edx.mobile.interfaces.RefreshListener;
 import org.edx.mobile.interfaces.SnackbarStatusListener;
 import org.edx.mobile.util.NetworkUtil;
 
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * Provides support for offline mode handling within an Activity.

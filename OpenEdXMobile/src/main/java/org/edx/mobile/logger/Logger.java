@@ -2,7 +2,7 @@ package org.edx.mobile.logger;
 
 import java.io.Serializable;
 
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 public class Logger implements Serializable {
 

@@ -24,7 +24,8 @@ import org.edx.mobile.view.custom.URLInterceptorWebViewClient;
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 @AndroidEntryPoint
 public class WebViewProgramFragment extends AuthenticatedWebViewFragment {
@@ -156,6 +157,7 @@ public class WebViewProgramFragment extends AuthenticatedWebViewFragment {
                 getBinding().authWebview.isShowingError());
     }
 
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEvent(NetworkConnectivityChangeEvent event) {
         if (!isSystemUpdatingWebView() && getActivity() != null) {
@@ -169,6 +171,7 @@ public class WebViewProgramFragment extends AuthenticatedWebViewFragment {
         }
     }
 
+    @Subscribe
     @SuppressWarnings("unused")
     public void onEventMainThread(EnrolledInCourseEvent event) {
         refreshOnResume = true;

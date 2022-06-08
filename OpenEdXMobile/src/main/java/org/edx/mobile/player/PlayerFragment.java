@@ -26,6 +26,7 @@ import android.widget.PopupWindow.OnDismissListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageButton;
@@ -85,6 +86,7 @@ public class PlayerFragment extends BaseFragment implements IPlayerListener, Ser
         AudioManager.OnAudioFocusChangeListener, NetworkObserver,
         GoogleCastDelegate.CastSessionListener {
 
+    @Keep
     private enum VideoNotPlayMessageType {
         IS_CLEAR, IS_VIDEO_MESSAGE_DISPLAYED, IS_VIDEO_ONLY_ON_WEB,
         IS_NETWORK_MESSAGE_DISPLAYED, IS_SHOWN_WIFI_SETTINGS_MESSAGE

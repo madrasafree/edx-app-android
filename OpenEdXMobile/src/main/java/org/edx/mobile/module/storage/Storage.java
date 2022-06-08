@@ -43,7 +43,7 @@ import dagger.Module;
 import dagger.hilt.InstallIn;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 @Module
 @InstallIn(SingletonComponent.class)

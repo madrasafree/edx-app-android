@@ -19,7 +19,7 @@ import org.edx.mobile.module.analytics.AnalyticsRegistry;
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 @AndroidEntryPoint
 public class CourseUpgradeWebViewFragment extends AuthenticatedWebViewFragment {

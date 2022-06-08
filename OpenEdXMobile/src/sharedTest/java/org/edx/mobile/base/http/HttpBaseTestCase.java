@@ -10,7 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import org.edx.mobile.authentication.AuthResponse;
+import org.edx.mobile.model.authentication.AuthResponse;
 import org.edx.mobile.authentication.LoginAPI;
 import org.edx.mobile.authentication.LoginService;
 import org.edx.mobile.base.BaseTestCase;

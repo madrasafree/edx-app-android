@@ -8,10 +8,12 @@ import org.edx.mobile.base.BaseTest;
 import org.edx.mobile.event.AccountDataLoadedEvent;
 import org.edx.mobile.event.ProfilePhotoUpdatedEvent;
 import org.edx.mobile.model.api.ProfileModel;
+import org.edx.mobile.model.profile.UserProfileBioModel;
+import org.edx.mobile.model.profile.UserProfileViewModel;
 import org.edx.mobile.module.prefs.UserPrefs;
-import org.edx.mobile.user.Account;
-import org.edx.mobile.user.LanguageProficiency;
-import org.edx.mobile.user.ProfileImage;
+import org.edx.mobile.model.user.Account;
+import org.edx.mobile.model.user.LanguageProficiency;
+import org.edx.mobile.model.user.ProfileImage;
 import org.edx.mobile.user.UserService;
 import org.edx.mobile.util.observer.Observer;
 import org.junit.After;
@@ -22,7 +24,7 @@ import org.mockito.Mock;
 import java.io.IOException;
 import java.util.Collections;
 
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 import retrofit2.mock.Calls;
 
 import static org.hamcrest.CoreMatchers.is;

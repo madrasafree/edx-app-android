@@ -5,7 +5,7 @@ import static org.edx.mobile.http.util.CallUtil.executeStrict;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.edx.mobile.authentication.AuthResponse;
+import org.edx.mobile.model.authentication.AuthResponse;
 import org.edx.mobile.authentication.LoginService;
 import org.edx.mobile.event.LogoutEvent;
 import org.edx.mobile.http.HttpStatusException;
@@ -23,7 +23,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import dagger.Lazy;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 import okhttp3.Authenticator;
 import okhttp3.Request;
 import okhttp3.Response;

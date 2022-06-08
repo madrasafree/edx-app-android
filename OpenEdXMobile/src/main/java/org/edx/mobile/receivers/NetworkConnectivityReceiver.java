@@ -16,7 +16,7 @@ import org.edx.mobile.services.DownloadSpeedService;
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import de.greenrobot.event.EventBus;
+import org.greenrobot.eventbus.EventBus;
 
 @AndroidEntryPoint
 public class NetworkConnectivityReceiver extends BroadcastReceiver {

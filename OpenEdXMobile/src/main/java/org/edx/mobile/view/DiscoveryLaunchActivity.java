@@ -13,6 +13,7 @@ import org.edx.mobile.R;
 import org.edx.mobile.databinding.ActivityDiscoveryLaunchBinding;
 import org.edx.mobile.module.analytics.Analytics;
 import org.edx.mobile.util.SoftKeyboardUtil;
+import org.greenrobot.eventbus.Subscribe;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
