@@ -204,6 +204,11 @@ public class RegisterActivity extends BaseFragmentActivity
         for (String key : parameters.keySet()) {
             parameterMap.put(key, parameters.getString(key));
         }
+
+        String fullName = parameterMap.get("first_name") + " " + parameterMap.get("last_name");
+        parameterMap.put("name",fullName);
+        parameters.putString("name", fullName);
+
         Call<JsonObject> validateRegistrationFields = loginService.validateRegistrationFields(parameterMap);
         validateRegistrationFields.enqueue(new ErrorHandlingCallback<JsonObject>(this) {
             @Override
@@ -304,6 +309,9 @@ public class RegisterActivity extends BaseFragmentActivity
 
         // add required and optional fields to the window
         for (IRegistrationFieldView v : mFieldViews) {
+            if(v.getField().getName().equals("name")){
+                continue;
+            }
             if (v.getField().isRequired()) {
                 requiredFieldsLayout.addView(v.getView());
             } else if (!v.getField().isRequired() && v.getField().isExposed()) {
@@ -403,6 +411,9 @@ public class RegisterActivity extends BaseFragmentActivity
         Bundle parameters = new Bundle();
         String email = null, confirm_email = null;
         for (IRegistrationFieldView v : mFieldViews) {
+             if(v.getField().getName().equals("name")){
+                continue;
+            }
             if (v.isValidInput()) {
                 if (v.getField().getName().equalsIgnoreCase(RegistrationFieldType.EMAIL.name())) {
                     email = v.getCurrentValue().getAsString();
