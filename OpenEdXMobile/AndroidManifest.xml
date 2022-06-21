@@ -30,6 +30,15 @@
     <!-- Required by app to to perform in app purchases -->
     <uses-permission android:name="com.android.vending.BILLING" />
 
+
+    <!-- Microphone permissions -->
+    <uses-permission android:name="android.permission.MICROPHONE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-feature android:name="android.hardware.audio.low_latency" />
+    <uses-feature android:name="android.hardware.audio.pro" />
+    <uses-feature android:name="android.hardware.microphone" />
+
     <!-- Setup for Code Coverage -->
     <instrumentation
         android:name="org.edx.mobile.instrumentation.EdxInstrumentation"
@@ -39,6 +48,10 @@
     <!-- Inspiration: https://stackoverflow.com/a/66473821/10840484 -->
     <queries>
         <package android:name="com.google.android.youtube" />
+    </queries>
+
+    <queries>
+        <package android:name="com.google.android.googlequicksearchbox"/>
     </queries>
 
     <application
