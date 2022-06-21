@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import org.edx.mobile.R;
 import org.edx.mobile.core.IEdxEnvironment;
@@ -39,10 +40,12 @@ public class TranscriptAdapter extends BaseListAdapter<Caption> {
         final int position = getPosition(model);
         if (isSelected(position)) {
             viewHolder.transcriptTv.setTextColor(SELECTED_TRANSCRIPT_COLOR);
-            viewHolder.transcriptTv.setTypeface(Typeface.DEFAULT_BOLD);
+            Typeface typefaceBold = ResourcesCompat.getFont(getContext(), R.font.abraham_regular);
+            viewHolder.transcriptTv.setTypeface(typefaceBold);
         } else {
             viewHolder.transcriptTv.setTextColor(UNSELECTED_TRANSCRIPT_COLOR);
-            viewHolder.transcriptTv.setTypeface(Typeface.DEFAULT);
+            Typeface typefaceLight = ResourcesCompat.getFont(getContext(), R.font.abraham_light);
+            viewHolder.transcriptTv.setTypeface(typefaceLight);
         }
     }
 

@@ -259,7 +259,7 @@ class AccountFragment : BaseFragment() {
         val wifiPrefManager = PrefManager(requireContext(), PrefManager.Pref.WIFI)
         binding.switchWifi.setOnCheckedChangeListener(null)
         binding.switchWifi.isChecked =
-            wifiPrefManager.getBoolean(PrefManager.Key.DOWNLOAD_ONLY_ON_WIFI, true)
+            wifiPrefManager.getBoolean(PrefManager.Key.DOWNLOAD_ONLY_ON_WIFI, false)
         binding.switchWifi.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 wifiPrefManager.put(PrefManager.Key.DOWNLOAD_ONLY_ON_WIFI, true)
