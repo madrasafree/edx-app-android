@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import de.greenrobot.event.EventBus
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.ResponseBody
 import org.edx.mobile.R
@@ -45,6 +44,8 @@ import org.edx.mobile.view.adapters.MyCoursesAdapter
 import org.edx.mobile.view.dialog.CourseModalDialogFragment
 import org.edx.mobile.view.dialog.FullscreenLoaderDialogFragment
 import org.edx.mobile.viewModel.InAppPurchasesViewModel
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -92,20 +93,17 @@ class MyCoursesListFragment : OfflineSupportBaseFragment(), RefreshListener {
                 }
             }
 
-            override fun onValuePropClicked(
-                courseId: String,
-                courseName: String,
-                isSelfPaced: Boolean
-            ) {
+            override fun onValuePropClicked(model: EnrolledCoursesResponse) {
                 //This time is checked to avoid taps in quick succession
                 val currentTime = SystemClock.elapsedRealtime()
                 if (currentTime - lastClickTime > MIN_CLICK_INTERVAL) {
                     lastClickTime = currentTime
                     CourseModalDialogFragment.newInstance(
                         Analytics.Screens.COURSE_ENROLLMENT,
-                        courseId,
-                        courseName,
-                        isSelfPaced
+                        model.courseId,
+                        model.productSku,
+                        model.course.name,
+                        model.course.isSelfPaced
                     ).show(childFragmentManager, CourseModalDialogFragment.TAG)
                 }
             }
@@ -217,6 +215,7 @@ class MyCoursesListFragment : OfflineSupportBaseFragment(), RefreshListener {
         EventBus.getDefault().unregister(this)
     }
 
+    @Subscribe(sticky = true)
     fun onEventMainThread(event: EnrolledInCourseEvent?) {
         refreshOnResume = true
     }
@@ -407,7 +406,7 @@ class MyCoursesListFragment : OfflineSupportBaseFragment(), RefreshListener {
         binding.loadingIndicator.root.visibility = View.GONE
 
         if (!EventBus.getDefault().isRegistered(this@MyCoursesListFragment)) {
-            EventBus.getDefault().registerSticky(this@MyCoursesListFragment)
+            EventBus.getDefault().register(this@MyCoursesListFragment)
         }
     }
 
@@ -448,6 +447,7 @@ class MyCoursesListFragment : OfflineSupportBaseFragment(), RefreshListener {
         EventBus.getDefault().post(MainDashboardRefreshEvent())
     }
 
+    @Subscribe(sticky = true)
     fun onEvent(event: MainDashboardRefreshEvent?) {
         loadData(showProgress = true, fromCache = false)
     }
@@ -459,6 +459,7 @@ class MyCoursesListFragment : OfflineSupportBaseFragment(), RefreshListener {
         }
     }
 
+    @Subscribe(sticky = true)
     fun onEvent(event: NetworkConnectivityChangeEvent?) {
         if (activity != null) {
             if (NetworkUtil.isConnected(context)) {
