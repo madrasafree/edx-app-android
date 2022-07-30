@@ -160,6 +160,7 @@ public interface CourseService {
         String username;
 
         @NonNull
+        @SerializedName("course_key")
         String courseKey;
 
         @NonNull
