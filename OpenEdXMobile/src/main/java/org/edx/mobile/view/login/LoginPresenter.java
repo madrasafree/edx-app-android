@@ -23,7 +23,7 @@ public class LoginPresenter extends ViewHoldingPresenter<LoginPresenter.LoginVie
         if (networkInfo.isOnZeroRatedNetwork()) {
             view.setSocialLoginButtons(false, false, false);
         } else {
-            view.setSocialLoginButtons(config.getGoogleConfig().isEnabled(), config.getFacebookConfig().isEnabled(),
+            view.setSocialLoginButtons(true, config.getFacebookConfig().isEnabled(),
                     config.getMicrosoftConfig().isEnabled());
         }
 

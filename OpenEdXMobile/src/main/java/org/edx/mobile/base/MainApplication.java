@@ -36,18 +36,17 @@ import org.edx.mobile.receivers.NetworkConnectivityReceiver;
 import org.edx.mobile.util.Config;
 import org.edx.mobile.util.NetworkUtil;
 import org.edx.mobile.util.NotificationUtil;
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-
 import javax.inject.Inject;
+import java.util.Locale;
 
 import dagger.hilt.android.EntryPointAccessors;
 import dagger.hilt.android.HiltAndroidApp;
+import de.greenrobot.event.EventBus;
 import io.branch.referral.Branch;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+import com.yariksoffice.lingver.Lingver;
 /**
  * This class initializes the modules of the app based on the configuration.
  */
@@ -89,7 +88,7 @@ public abstract class MainApplication extends MultiDexApplication {
      */
     private void init() {
         application = this;
-
+        Lingver.init(this, "he");
         EventBus.getDefault().register(new CrashlyticsCrashReportObserver());
 
         if (config.getNewRelicConfig().isEnabled()) {
@@ -144,7 +143,10 @@ public abstract class MainApplication extends MultiDexApplication {
             FacebookSdk.setApplicationId(config.getFacebookConfig().getFacebookAppId());
             FacebookSdk.sdkInitialize(getApplicationContext());
         }
+        //Resources res = context.getResources();
+        //Configuration conf = res.getConfiguration();
 
+        //application.getRe.setLocale(new Locale("he"));
         // Braze SDK Initialization
         if (config.getBrazeConfig().isEnabled() && config.getFirebaseConfig().isEnabled()) {
             AppboyConfig appboyConfig = new AppboyConfig.Builder()
@@ -156,6 +158,7 @@ public abstract class MainApplication extends MultiDexApplication {
             Appboy.configure(this, appboyConfig);
             registerActivityLifecycleCallbacks(new AppboyLifecycleCallbackListener(true, true));
         }
+       
     }
 
     public void showBanner(LoginAPI loginAPI, boolean delayCall) {
@@ -219,7 +222,6 @@ public abstract class MainApplication extends MultiDexApplication {
     }
 
     public static class CrashlyticsCrashReportObserver {
-        @Subscribe
         @SuppressWarnings("unused")
         public void onEventMainThread(Logger.CrashReportEvent e) {
             FirebaseCrashlytics.getInstance().recordException(e.getError());
@@ -227,7 +229,6 @@ public abstract class MainApplication extends MultiDexApplication {
     }
 
     public static class NewRelicObserver {
-        @Subscribe
         @SuppressWarnings("unused")
         public void onEventMainThread(NewRelicEvent e) {
             NewRelic.setInteractionName("Display " + e.getScreenName());
