@@ -180,6 +180,13 @@ public class URLInterceptorWebViewClient extends WebViewClient {
 
     @Override
     public void onPageFinished(WebView view, String url) {
+
+        //Setting abraham font in webviews
+        String css = "body *,p,h1,h2,h3,li,a{font-family:muliregular!important;}";
+        String js = "var style = document.createElement('style'); style.innerHTML = '"
+                + css + "'; document.head.appendChild(style);";
+        view.evaluateJavascript(js,null);
+
         super.onPageFinished(view, url);
         loadingInitialUrl = false;
         loadingFinished = true;
@@ -187,6 +194,8 @@ public class URLInterceptorWebViewClient extends WebViewClient {
         if (pageStatusListener != null) {
             pageStatusListener.onPageFinished();
         }
+
+
     }
 
     @Override

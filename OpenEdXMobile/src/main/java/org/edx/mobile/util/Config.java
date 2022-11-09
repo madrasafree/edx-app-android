@@ -793,8 +793,7 @@ public class Config {
     }
 
     public boolean isWhatsNewEnabled() {
-        //return getBoolean(WHATS_NEW_ENABLED, false);
-        return true;
+        return getBoolean(WHATS_NEW_ENABLED, false);
     }
 
     public boolean isCourseVideosEnabled() {
