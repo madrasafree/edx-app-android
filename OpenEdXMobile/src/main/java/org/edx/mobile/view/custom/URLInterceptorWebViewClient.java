@@ -1,10 +1,15 @@
 package org.edx.mobile.view.custom;
 
+import android.Manifest;
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 import android.webkit.PermissionRequest;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
@@ -15,6 +20,8 @@ import android.webkit.WebViewClient;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import org.edx.mobile.core.EdxDefaultModule;
@@ -62,6 +69,7 @@ public class URLInterceptorWebViewClient extends WebViewClient {
     private String hostForThisPage = null;
     private boolean ajaxInterceptorEmbed = false;
     Config config;
+    private int MICROPHONE_PERMISSION_CODE = 1;
 
     /**
      * Tells if the page loading has been finished or not.
@@ -154,8 +162,18 @@ public class URLInterceptorWebViewClient extends WebViewClient {
             
             @Override
             public void onPermissionRequest(final PermissionRequest request) {
+                for (String r : request.getResources()) {
+                    if(r.equals(PermissionRequest.RESOURCE_AUDIO_CAPTURE)){
+                        if(ContextCompat.checkSelfPermission(activity,
+                                Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
+                                askMicrophonePermission();
+                        }
+                    }
+                }
                 request.grant(request.getResources());
             }
+
+
         });
         if (interceptAjaxRequest) {
             webView.addJavascriptInterface(new AjaxNativeCallback(completionCallback), "nativeAjaxCallback");
@@ -412,5 +430,36 @@ public class URLInterceptorWebViewClient extends WebViewClient {
 
     public interface CompletionCallback {
         void blockCompletionHandler(boolean isCompleted);
+    }
+
+     private void askMicrophonePermission(){
+
+        if(ActivityCompat.shouldShowRequestPermissionRationale(activity,
+                Manifest.permission.RECORD_AUDIO)){
+
+            new AlertDialog.Builder(activity)
+                    .setTitle("הרשאה לשימוש במיקרופון")
+                    .setMessage("כדי להשתמש ברכיב הזה דרושה הרשאה לשימוש במיקרופון")
+                    .setPositiveButton("אישור", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(activity,
+                                    new String[] {Manifest.permission.RECORD_AUDIO}, MICROPHONE_PERMISSION_CODE);
+                        }
+                    })
+                    .setNegativeButton("ביטול", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .create().show();
+        }
+        else{
+
+            ActivityCompat.requestPermissions(activity, new String[] {Manifest.permission.RECORD_AUDIO},
+                    MICROPHONE_PERMISSION_CODE);
+        }
+
     }
 }
