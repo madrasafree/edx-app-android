@@ -342,13 +342,13 @@ android {
     flavorDimensions "default"
 
     defaultConfig {
-        applicationId APPLICATION_ID
+        applicationId 'com.madrasafree.mobile'
         // minimum version is Android 5.0
         minSdkVersion MIN_SDK_VERSION
         targetSdkVersion TARGET_SDK_VERSION
 
-        versionCode 10119
-        versionName "test09.11.2022"
+        versionCode 10120
+        versionName "test05.12.2022"
 
         renderscriptTargetApi 22
         renderscriptSupportModeEnabled true
@@ -356,7 +356,7 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         // test configuration
-        testApplicationId 'org.edx.mobile.test'
+        testApplicationId 'com.madrasafree.mobile.test'
 
         for (task in project.gradle.startParameter.taskNames) {
             if (task.contains("ScreenshotTest")) {
