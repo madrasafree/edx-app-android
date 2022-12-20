@@ -347,8 +347,8 @@ android {
         minSdkVersion MIN_SDK_VERSION
         targetSdkVersion TARGET_SDK_VERSION
 
-        versionCode 10120
-        versionName "test05.12.2022"
+        versionCode 10121
+        versionName "test.19.12"
 
         renderscriptTargetApi 22
         renderscriptSupportModeEnabled true
@@ -500,9 +500,9 @@ android {
         }
 
         release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //minifyEnabled true
+            //shrinkResources true
+            //proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             // Only apply release signing configurations if keystore.properties is available
             if (project.file('signing/keystore.properties').exists()) {
                 apply from: 'signing/signing.gradle'
