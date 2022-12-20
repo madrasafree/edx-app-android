@@ -20,6 +20,7 @@ public class EdxWebView extends WebView {
         settings.setSupportZoom(true);
         settings.setLoadsImagesAutomatically(true);
         settings.setDomStorageEnabled(true);
+        settings.setMediaPlaybackRequiresUserGesture(false);
         settings.setUserAgentString(
                 settings.getUserAgentString() + " " +
                         context.getString(R.string.app_name) + "/" +
