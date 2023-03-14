@@ -1,3 +1,5 @@
+**This project is tested with [BrowserStack](https://www.browserstack.com).**
+
 # edX Android
 
 [<img align="right" alt="Get it on Google Play" height="128" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=org.edx.mobile)
