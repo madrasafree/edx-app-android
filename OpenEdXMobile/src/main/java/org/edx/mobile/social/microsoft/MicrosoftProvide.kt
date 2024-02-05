@@ -19,6 +19,14 @@ class MicrosoftProvide : SocialProvider {
     }
 
     override fun getUserInfo(
+        context: Context?,
+        accessToken: String?,
+        userInfoCallback: SocialLoginDelegate.SocialUserInfoCallback?
+    ) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getUserInfo(
         context: Context?, socialType: SocialFactory.SOCIAL_SOURCE_TYPE?,
         accessToken: String?,
         userInfoCallback: SocialLoginDelegate.SocialUserInfoCallback?

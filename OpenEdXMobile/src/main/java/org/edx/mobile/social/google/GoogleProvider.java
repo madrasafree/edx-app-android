@@ -9,7 +9,7 @@ import org.edx.mobile.core.EdxDefaultModule;
 import org.edx.mobile.http.callback.ErrorHandlingOkCallback;
 import org.edx.mobile.http.provider.OkHttpClientProvider;
 import org.edx.mobile.social.SocialFactory;
-import org.edx.mobile.social.SocialLoginDelegate;
+import org.edx.mobile.social.SocialLoginDelegate.SocialUserInfoCallback;
 import org.edx.mobile.social.SocialMember;
 import org.edx.mobile.social.SocialProvider;
 
@@ -41,16 +41,21 @@ public class GoogleProvider implements SocialProvider {
     }
 
     @Override
+    public void getUserInfo(Context context, SocialFactory.SOCIAL_SOURCE_TYPE socialType, String accessToken, SocialUserInfoCallback userInfoCallback) {
+
+    }
+
+    @Override
     public void getUserInfo(Context context,
-                            SocialFactory.SOCIAL_SOURCE_TYPE socialType, String accessToken,
-                            final SocialLoginDelegate.SocialUserInfoCallback userInfoCallback) {
+                            String accessToken,
+                            final SocialUserInfoCallback userInfoCallback) {
         OkHttpClientProvider okHttpClientProvider = EntryPointAccessors
                 .fromApplication(context, EdxDefaultModule.ProviderEntryPoint.class)
                 .getOkHttpClientProvider();
         okHttpClientProvider.get().newCall(new Request.Builder()
-                .url(String.format(USER_INFO_URL, accessToken))
-                .get()
-                .build())
+                        .url(String.format(USER_INFO_URL, accessToken))
+                        .get()
+                        .build())
                 .enqueue(new ErrorHandlingOkCallback<GoogleUserProfile>(context,
                         GoogleUserProfile.class, null) {
                     @Override

@@ -4,6 +4,10 @@ import android.content.Context;
 
 public interface SocialProvider {
 
+    void getUserInfo(Context context,
+                     String accessToken,
+                     SocialLoginDelegate.SocialUserInfoCallback userInfoCallback);
+
     /**
      * Callback interface for all social network calls
      */

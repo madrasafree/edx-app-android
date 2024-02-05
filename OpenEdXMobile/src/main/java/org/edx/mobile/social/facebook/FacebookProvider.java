@@ -26,6 +26,11 @@ public class FacebookProvider implements SocialProvider {
     }
 
     @Override
+    public void getUserInfo(Context context, String accessToken, SocialLoginDelegate.SocialUserInfoCallback userInfoCallback) {
+
+    }
+
+    @Override
     public boolean isLoggedIn() {
         return AccessToken.getCurrentAccessToken() != null;
     }
